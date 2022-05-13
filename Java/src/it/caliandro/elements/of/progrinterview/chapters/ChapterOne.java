@@ -1,5 +1,7 @@
 package it.caliandro.elements.of.progrinterview.chapters;
 
+import java.util.Random;
+
 /*
  * List of Bitwise Java operators:
  * 
@@ -261,6 +263,30 @@ public class ChapterOne {
 	}
 	
 	
+	/*
+	 * this method returns a random integer betweem lowerBound and upperBound
+	 * 
+	 * */
+	public static int uniformRandom(int lowerBound, int upperBound) {
+		int numberOfOutcomes = upperBound - lowerBound + 1, result;
+		do {
+			result = 0;
+			for (int i=0; (1 << i) < numberOfOutcomes; i++) {
+				// zeroOneRandom() is the provided randomNumber generator
+				result = (result << 1) | zeroOneRandom();
+			}
+		} while (result >= numberOfOutcomes);
+		
+		return result + lowerBound;
+	}
+
+	
+	private static int zeroOneRandom() {
+		Random random = new Random();
+		return random.nextInt(2);
+	}
+
+	
 	public static void main(String[] args) {
 		/*Count number of ones in a decimal number*/
 		System.out.println("************************");
@@ -340,5 +366,13 @@ public class ChapterOne {
 		System.out.println(isNumberPalyndrom(35453));
 		System.out.println(isNumberPalyndrom(121));
 
+		
+		/* Returns a random number between min and max */
+		System.out.println("************************");
+		System.out.println("Returns a random number between min and max");
+		System.out.println("************************");
+		System.out.println(uniformRandom(7, 11));
+		System.out.println(uniformRandom(1990, 1990));
+		System.out.println(uniformRandom(1990, 1995));
 	}
 }
