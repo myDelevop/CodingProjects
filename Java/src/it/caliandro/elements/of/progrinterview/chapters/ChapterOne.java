@@ -2,6 +2,8 @@ package it.caliandro.elements.of.progrinterview.chapters;
 
 import java.util.Random;
 
+import it.caliandro.elements.of.progrinterview.utils.Rectangle;
+
 /*
  * List of Bitwise Java operators:
  * 
@@ -285,6 +287,22 @@ public class ChapterOne {
 		Random random = new Random();
 		return random.nextInt(2);
 	}
+	
+	
+	private static Rectangle intersectRectangle(Rectangle R1, Rectangle R2) {
+		if(!isIntersect(R1, R2)) {
+			return new Rectangle(0, 0, -1, -1);
+		}
+		return new Rectangle(Math.max(R1.getX(), R2.getX()), 
+				Math.max(R1.getY(), R2.getY()), 
+				Math.min(R1.getX() + R1.getWidth(), R2.getX() + R2.getWidth()) - Math.max(R1.getX(), R2.getX()), 
+				Math.min(R1.getY() + R1.getHeight(), R2.getY() + R2.getHeight()) - Math.max(R1.getY(), R2.getY()));
+	}
+	
+	private static boolean isIntersect(Rectangle R1, Rectangle R2) {
+		return R1.getX() <= R2.getX() + R2.getWidth() && R1.getX() + R1.getWidth() >= R2.getX()
+				&& R1.getY() <= R2.getY() + R2.getHeight() && R1.getY() + R1.getHeight() >= R2.getY();
+	}
 
 	
 	public static void main(String[] args) {
@@ -374,5 +392,18 @@ public class ChapterOne {
 		System.out.println(uniformRandom(7, 11));
 		System.out.println(uniformRandom(1990, 1990));
 		System.out.println(uniformRandom(1990, 1995));
+		
+		/* Takes in input two rectangles and returns the intersation between them */
+		System.out.println("************************");
+		System.out.println("Takes in input two rectangles and returns the intersation between them");
+		System.out.println("************************");
+		Rectangle A = new Rectangle(2, 1, 2, 2);
+		Rectangle B = new Rectangle(3, 2, 3, 2);
+		Rectangle C = new Rectangle(5, 0, 1, 3);
+		System.out.println(intersectRectangle(A, B));
+		System.out.println(intersectRectangle(B, C));
+		System.out.println(intersectRectangle(A, C));
+		
+		
 	}
 }
