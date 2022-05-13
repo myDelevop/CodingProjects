@@ -50,8 +50,32 @@ def parity_two(x):
     return x & 0x1
 
 
+def uniform_random(lower_bound, upper_bound):
+    number_of_outcomes = upper_bound - lower_bound + 1
+    result = 0
+    first_run = True
+
+    while first_run or result >= (number_of_outcomes + 1):
+        first_run = False
+        result = 0
+
+        i = 0
+        while (1 << i) < number_of_outcomes:
+            result = (result << 1) | zero_one_random()
+            i = i + 1
+
+    return result + lower_bound;
+
+
+def zero_one_random():
+    return random.randint(0, 1)
+
+
 # MAIN SECTION:
+
+
 print(count_bits(2))
 print(parity_brute_force(36))
 print(parity_one(36))
 print(parity_two(36))
+print(uniform_random(2, 5))
