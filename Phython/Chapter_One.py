@@ -1,5 +1,7 @@
 import random
 
+from Rectangle import Rectangle
+
 """
 This method, counts the number of bits to one in the binary 
 representation of a decimal number. 
@@ -79,3 +81,12 @@ print(parity_brute_force(36))
 print(parity_one(36))
 print(parity_two(36))
 print(uniform_random(2, 5))
+
+
+A = Rectangle(2, 1, 2, 2)
+B = Rectangle(3, 2, 3, 2)
+C = Rectangle(5, 0, 1, 3)
+
+print(Rectangle.intersect_rectangle(A, B))
+print(Rectangle.intersect_rectangle(B, C))
+print(Rectangle.intersect_rectangle(A, C))
