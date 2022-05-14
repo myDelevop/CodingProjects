@@ -21,7 +21,7 @@ def swap_elements(array, i, j):
 def array_to_string(array):
     s = "Array: "
     for a in array:
-        s = s + a + ", "
+        s = s + str(a) + ", "
     s = s.removesuffix(", -")
     return s
 
