@@ -1,6 +1,6 @@
 import random
 
-from Rectangle import Rectangle
+from rectangle import Rectangle
 
 """
 This method, counts the number of bits to one in the binary 
