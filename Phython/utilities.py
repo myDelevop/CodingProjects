@@ -25,3 +25,10 @@ def array_to_string(array):
     s = s.removesuffix(", -")
     return s
 
+
+def bubble_sort(array):
+    for i in range(0, len(array)):
+        for j in range (0, len(array)-i-1):
+            if array[j]>array[j+1]:
+                swap_elements(array, j, j+1)
+    return

@@ -21,3 +21,7 @@ print(utilities.array_to_string(cars))
 array = [9, 4, 1, 8, -3, 5]
 even_odd(array)
 print(utilities.array_to_string(array))
+
+array = [-2, 45, 0, 11, -9]
+utilities.bubble_sort(array)
+print(utilities.array_to_string(array))
