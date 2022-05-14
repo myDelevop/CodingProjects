@@ -9,7 +9,8 @@ local.properties
 .settings/
 .loadpath
 .recommenders
-
+.idea/
+_pychach_/
 # External tool builders
 .externalToolBuilders/
 
